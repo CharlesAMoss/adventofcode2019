@@ -17,11 +17,7 @@ router.post("/add", (req, res) => {
     const add = (num1, num2) => {
       return num1 + num2;
     };
-    // res.json({
-    //   status: "success",
-    //   result: add(num1, num2)
-    // });
-  
+
     res.status(200).render("add" , {
       message: "success",
       result: add(num1, num2),
@@ -36,10 +32,9 @@ router.get("/dayone", (req, res) => {
 });
 
 // router.get("/dayone/:mass", (req, res) => {
-//   const fuel = dayone.fuelCounter(parseInt(req.params.mass));
- 
-//   res.status(200).json({ status: "success", message: fuel});
-  
+//   const title = dayone.fuelCalculator(req.params.mass);
+//   res.status(200).json({ status: "success", message: title});
+
 // });
 
 router.get("/dayone/total", (req, res) => {
@@ -48,3 +43,5 @@ router.get("/dayone/total", (req, res) => {
 });
 
   module.exports = router ;
+
+  

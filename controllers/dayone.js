@@ -8,11 +8,25 @@ const fuelCounter = int => {
     return Math.floor(int/3) - 2 
 }
 
+const fuelCalculator = int => {
+    const fuelList = [];
+    let fuel = fuelCounter(int);
+    fuelList.push(fuel);
+    while (fuel > 0) {
+       let f = fuelCounter(fuel)
+       if (f < 0) f = 0; 
+       fuelList.push(f);
+       fuel = f 
+
+    }
+    console.log(fuelList)  
+    return fuelList.reduce((a,b) => a + b)
+}
+
 const fuelTotal = () => {
     let list = getFuelMassModules();
-
     return list
-               .map(x => fuelCounter(x))
+               .map(x => fuelCalculator(x))
                .reduce((a,b) => a + b)
 }
 
@@ -27,5 +41,6 @@ const getFuelMassModules = () => {
 
 module.exports = { 
     title,
+    fuelCalculator,
     fuelTotal  
 }
