@@ -6,7 +6,7 @@ const title = function() {
 
 const intcodeProgram = (req) => {
     const { patch1, patch2 } = req.body,
-          list = getProgram();
+        list = getProgram();
     list[1] = patch1;
     list[2] = patch2;
     let head = 0;
@@ -34,46 +34,4 @@ module.exports = {
     intcodeProgram
 }
 
-//console.log(intcodeProgram())
-
-// const chomp = (list) => {
-  
-
-
-//   data.list = list
-//   data.output = list
-//   data.listLength = list.length 
-//   data.opcode = list[0]
-//   data.first = list[list[1]]
-//   data.second = list[list[2]]
-//   data.store = list[3]
-
-//   switch(data.opcode) {
-//     case 1:
-//       data.output[data.store] = data.first + data.second  
-//     break;
-//     case 2:
-//       data.output[data.store] = data.first * data.second  
-//     break;
-//     case 99:
-//       return data.output  
-//     break;
-
-//   }
-
-//   console.log(list)
-//   // for (let l of list ) {
-      
-//   // }
-
-
-// } 
-
-//chomp(arr)
-
-//console.log(data)
-//$('#msg').html( data.output )
-
-
-  
   
