@@ -50,9 +50,14 @@ router.get("/daytwo", (req, res) => {
 });
 
 router.get("/daytwo/intcode", (req, res) => {
-  const title = daytwo.intcodeProgram(req);
+  const { noun, verb } = req.body,
+    title = daytwo.intcodePatchProgram(noun, verb);
   res.status(200).json({ status: "success", message: title});
- 
+});
+
+router.get("/daytwo/findPatch", (req, res) => {
+  const title = daytwo.intercodeHarness();
+  res.status(200).json({ status: "success", message: title});
 });
 
 
