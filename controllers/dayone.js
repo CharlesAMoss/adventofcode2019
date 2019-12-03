@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const title = () =>  {
+const title = function() {
     return `Day 1: The Tyranny of the Rocket Equation`     
 }
 
@@ -9,23 +9,20 @@ const fuelCounter = int => {
 }
 
 const fuelCalculator = int => {
-    const fuelList = [];
-    let fuel = fuelCounter(int);
+    let fuelList = [],
+        fuel = fuelCounter(int);
     fuelList.push(fuel);
     while (fuel > 0) {
        let f = fuelCounter(fuel)
-       if (f < 0) f = 0; 
-       fuelList.push(f);
+       f < 0 ? f = 0 : fuelList.push(f);
        fuel = f 
-
     }
-    console.log(fuelList)  
     return fuelList.reduce((a,b) => a + b)
 }
 
 const fuelTotal = () => {
-    let list = getFuelMassModules();
-    return list
+    
+    return getFuelMassModules()
                .map(x => fuelCalculator(x))
                .reduce((a,b) => a + b)
 }

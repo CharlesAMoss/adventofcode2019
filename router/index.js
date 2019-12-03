@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const dayone = require('../controllers/dayone')
+const daytwo = require('../controllers/daytwo')
 
 router.get("/", (req, res) => {
     //res.json({ status: "success", message: "Welcome To Testing API" });
@@ -28,7 +29,7 @@ router.post("/add", (req, res) => {
 router.get("/dayone", (req, res) => {
   const title = dayone.title();
   res.status(200).json({ status: "success", message: title});
-  next();
+
 });
 
 // router.get("/dayone/:mass", (req, res) => {
@@ -42,6 +43,21 @@ router.get("/dayone/total", (req, res) => {
   res.status(200).json({ status: "success", message: total});
 });
 
-  module.exports = router ;
+router.get("/daytwo", (req, res) => {
+  const title = daytwo.title();
+  res.status(200).json({ status: "success", message: title});
+  next();
+});
+
+router.get("/daytwo/intcode", (req, res) => {
+  const title = daytwo.intcodeProgram(req);
+  res.status(200).json({ status: "success", message: title});
+ 
+});
+
+
+
+
+  module.exports = router;
 
   
